@@ -23,7 +23,8 @@ Person.belongsToMany(Person, { through: Pair, as: 'sibling', foreignKey: 'person
 export const db = {
     sequelize,
     Lobby: Lobby,
-    Person: Person
+    Person: Person,
+    Pair: Pair
 }
 
 
