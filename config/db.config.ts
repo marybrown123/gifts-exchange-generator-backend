@@ -7,10 +7,10 @@ interface Options {
 }
 
 const options: Options = {
-    HOST: "localhost",
-    USER: "postgres",
-    PASSWORD: "Pchelka123.",
-    DB: "prezenty",
+    HOST: process.env.HOST || "localhost",
+    USER: process.env.USER || "postgres",
+    PASSWORD: process.env.PASSWORD || "Pchelka123.",
+    DB: process.env.DB || "prezenty",
     dialect: "postgres",
 }
 
