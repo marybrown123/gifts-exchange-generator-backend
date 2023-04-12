@@ -6,14 +6,14 @@ import routerLobby from './routes/lobby.routes'
 import cors from 'cors';
 const app = express();
 
+app.use(express.json());
+
 app.use(cors({
     credentials: true,
     preflightContinue: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH' , 'DELETE', 'OPTIONS'],
     origin: true
 }))
-
-app.use(express.json());
 
 db.sequelize.sync()
     .then(() => {
