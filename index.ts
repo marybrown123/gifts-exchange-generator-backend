@@ -7,7 +7,10 @@ import cors from 'cors';
 const app = express();
 
 app.use(cors({
-    origin: 'https://generator-prezentow.netlify.app'
+    credentials: true,
+    preflightContinue: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH' , 'DELETE', 'OPTIONS'],
+    origin: true
 }))
 
 app.use(express.json());
