@@ -6,7 +6,9 @@ import routerLobby from './routes/lobby.routes'
 import cors from 'cors';
 const app = express();
 
-app.use(cors())
+app.use(cors({
+    origin: 'https://generator-prezentow.netlify.app'
+}))
 
 app.use(express.json());
 
