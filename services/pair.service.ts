@@ -4,12 +4,12 @@ import { CreatePairDto } from '../DTOs/create-pair.dto';
 
 const Pair = db.Pair;
 
-const createPairs = async (lobbyId: number, peopleIds: number[]) => {
+export const createPairs = async (lobbyId: number, peopleIds: number[]) => {
     const peopleIdsCopy = [...peopleIds];
     let personReceivingId: number;
     const pairs = peopleIds.map(personGivingId => {
         do {
-            personReceivingId = peopleIdsCopy[Math.floor(Math.random()*peopleIdsCopy.length)]
+            personReceivingId = peopleIdsCopy[Math.floor(Math.random() * peopleIdsCopy.length)]
         } while (personGivingId === personReceivingId)
         peopleIdsCopy.splice(peopleIdsCopy.indexOf(personReceivingId), 1);
         return {
@@ -18,8 +18,7 @@ const createPairs = async (lobbyId: number, peopleIds: number[]) => {
             lobbyId
         }    
     })
-    console.log(pairs);
     await Pair.bulkCreate(pairs);
+    return pairs;
 }
 
-export default createPairs;
