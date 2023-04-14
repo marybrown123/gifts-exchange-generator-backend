@@ -1,8 +1,8 @@
 import { db } from '../models/sequelize'
 import { Request, Response } from "express";
 import { CreateLobbyDto } from '../DTOs/create-lobby.dto'
-import createPeople from '../services/person.service';
-import createPairs from '../services/pair.service';
+import { createPeople } from '../services/person.service';
+import { createPairs } from '../services/pair.service';
 import { LobbyResponse } from '../responses/lobby.response';
 
 const Lobby = db.Lobby;
