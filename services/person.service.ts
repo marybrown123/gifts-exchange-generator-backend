@@ -4,7 +4,7 @@ import { PersonResponse } from '../responses/person.response';
 import randomstring from "randomstring";
 const Person = db.Person;
 
-const createPeople = async (people: string[], lobbyId: number) => {
+export const createPeople = async (people: string[], lobbyId: number) => {
     const peopleForDb = await Promise.all(people.map(async person => {
         const hash = randomstring.generate({
             length: 20,
@@ -22,5 +22,3 @@ const createPeople = async (people: string[], lobbyId: number) => {
     })
     return peopleToReturn;
 }
-
-export default createPeople;
